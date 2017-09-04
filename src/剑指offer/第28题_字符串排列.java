@@ -5,26 +5,24 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class 字符串排列 {
+public class 第28题_字符串排列 {
 	public static ArrayList<String> Permutation(String str) {
 		Set<String> set = new HashSet<>();
 		StringBuffer stringBuffer = new StringBuffer(str);
 		StringBuffer result = new StringBuffer();
-		permutation(stringBuffer, 0, result, set);
+		permutation(stringBuffer, 0, set);
 		ArrayList<String> list = new ArrayList<>(set);
 		Collections.sort(list);
 		return list;
     }
 	
-	public static void permutation(StringBuffer stringBuffer,int start,StringBuffer result,Set<String> set){
+	public static void permutation(StringBuffer stringBuffer,int start,Set<String> set){
 		for(int i=start;i<stringBuffer.length();i++){
-			result.append(stringBuffer.charAt(i));
 			if(start==stringBuffer.length()-1){
-				set.add(result.toString());
+				set.add(stringBuffer.toString());
 			}
 			swap(stringBuffer, i, start);
-			permutation(stringBuffer, start+1,result,set);
-			result.deleteCharAt(result.length()-1);
+			permutation(stringBuffer, start+1,set);
 			swap(stringBuffer, i, start);
 		}
 	}

@@ -6,8 +6,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class 从上往下打印二叉树 {
+public class 第23题_从上往下打印二叉树 {
 	
+	//考察的是用广度优先搜索来遍历二叉树，使用队列来实现广度优先搜索
 	public static ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
 		LinkedList<TreeNode> linkedList = new LinkedList<>();
         ArrayList<Integer> list = new ArrayList<>();
