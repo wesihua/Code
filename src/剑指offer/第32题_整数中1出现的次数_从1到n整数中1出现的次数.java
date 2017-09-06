@@ -1,6 +1,6 @@
 package 剑指offer;
 
-public class 整数中1出现的次数_从1到n整数中1出现的次数 {
+public class 第32题_整数中1出现的次数_从1到n整数中1出现的次数 {
 //	public static int NumberOf1Between1AndN_Solution(int n) {
 //		int sum = 0;
 //		String nStr = String.valueOf(n);
@@ -40,6 +40,11 @@ public class 整数中1出现的次数_从1到n整数中1出现的次数 {
 //		return sum;
 //    }
 	
+	/**
+	 * 
+	 * @param n
+	 * @return
+	 */
 	public static int NumberOf1Between1AndN_Solution(int n){
 		int sum = 0;
 		int factor = 1;

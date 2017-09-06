@@ -2,7 +2,7 @@ package 剑指offer;
 
 import java.util.ArrayList;
 
-public class 最小的K个数 {
+public class 第30题_最小的K个数 {
 	public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
 		ArrayList<Integer> list = new ArrayList<>();
 		if(k>input.length)
