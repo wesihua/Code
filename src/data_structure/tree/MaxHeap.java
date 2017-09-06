@@ -1,7 +1,5 @@
 package data_structure.tree;
 
-import javax.management.RuntimeErrorException;
-
 public class MaxHeap {
 	
 	//堆是完全二叉树，用数组来实现
