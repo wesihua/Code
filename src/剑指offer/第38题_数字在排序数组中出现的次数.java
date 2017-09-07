@@ -2,7 +2,7 @@ package 剑指offer;
 
 import java.lang.instrument.IllegalClassFormatException;
 
-public class 数字在排序数组中出现的次数 {
+public class 第38题_数字在排序数组中出现的次数 {
 	public int GetNumberOfK(int [] array , int k) {
 	       return binarySearch(array, 0, array.length-1, k);
     }

@@ -2,7 +2,9 @@ package 剑指offer;
 
 import java.util.ArrayDeque;
 
-public class 两个链表的第一个公共节点 {
+public class 第37题_两个链表的第一个公共节点 {
+	//对两个链表进行遍历，将节点分别保存到两个栈中，再对两个栈同时进行遍历，最后一个相同的节点就是两个链表的公共节点
+	//还有一种更简单的做法是，先两个链表进行遍历统计出各自的长度l1、l2，然后较长的链表先走|l1-l2|，然后两个链表同时遍历，第一个相同的节点就是两个链表的公共节点
 	public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
  		if(pHead1==null||pHead2==null)
  			return null;
