@@ -24,17 +24,24 @@ public class 纸牌博弈 {
 		
 		int max = 0;
 		
-		int[][] sum = new int[n][n];
-		for(int r=1;r<=n;r++){
-			System.out.println("r:"+r);
-			for(int i=0;i<n-r+1;i++){
-				int j = i+r-1;
-				if(i==j)
-					sum[i][j] = A[j];
-				else
-					sum[i][j] = A[j] + sum[i][j-1];
-				System.out.println("i:"+i+" j:"+j+"   "+sum[i][j]);
-			}
+//		int[][] sum = new int[n][n];
+//		for(int r=1;r<=n;r++){
+//			System.out.println("r:"+r);
+//			for(int i=0;i<n-r+1;i++){
+//				int j = i+r-1;
+//				if(i==j)
+//					sum[i][j] = A[j];
+//				else
+//					sum[i][j] = A[j] + sum[i][j-1];
+//				System.out.println("i:"+i+" j:"+j+"   "+sum[i][j]);
+//			}
+//		}
+		
+		//优化sum数组，sum[i]代表A[0]到A[i-1]的总和
+		//sum[j]-sum[i]代表A[i]到A[j-1]的总和
+		int[] sum = new int[n+1];
+		for(int i=1;i<=n;i++) {
+			sum[i] = sum[i-1] + A[i-1];
 		}
 		
 		for(int r=1;r<=n;r++){
@@ -44,7 +51,8 @@ public class 纸牌博弈 {
 				if(i==j)
 					dp[i][j] = A[i];
 				else
-					dp[i][j] = Math.max(A[i]+sum[i+1][j]-dp[i+1][j], A[j]+sum[i][j-1]-dp[i][j-1]);
+					//dp[i][j] = Math.max(A[i]+sum[i+1][j]-dp[i+1][j], A[j]+sum[i][j-1]-dp[i][j-1]);
+					dp[i][j] = Math.max(A[i]+(sum[j+1]-sum[i+1])-dp[i+1][j], A[j]+(sum[j]-sum[i])-dp[i][j-1]);
 				
 				System.out.println("i:"+i+" j:"+j+"   "+dp[i][j]);
 				
@@ -53,7 +61,8 @@ public class 纸牌博弈 {
 			}
 		}
 		
-		return Math.max(dp[0][n-1], sum[0][n-1]-dp[0][n-1]);
+		//return Math.max(dp[0][n-1], sum[0][n-1]-dp[0][n-1]);
+		return Math.max(dp[0][n-1], sum[n]-dp[0][n-1]);
     }
 	
 	public static void main(String args[]){
