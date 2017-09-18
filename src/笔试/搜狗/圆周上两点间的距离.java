@@ -32,7 +32,7 @@ public class 圆周上两点间的距离 {
 	}
 	
 	public static void binarySearch(double[] array, int start, int end, holder holder) {
-		if(start>=end)
+		if(start>end)
 			return;
 		
 		int mid = (start + end)/2;
